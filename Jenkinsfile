@@ -2,12 +2,16 @@ pipeline {
 
     agent any
 
+    environment {
+        VERSION = "1.3.5"
+        CREDENTIALS = credentials('80233fed-aa3c-4b5d-af9f-2796c55cac01')
+    }
 
     stages {
 
         stage("build") {
             steps {
-                echo 'building the application'
+                echo "building the application, version $VERSION"
             }
         }
 
@@ -18,13 +22,13 @@ pipeline {
                 }
             }
             steps {
-                echo 'testing the application'
+                echo "testing the application $VERSION"
             }
         }
 
         stage("deploy") {
             steps {
-                echo 'deploying the application'
+                echo "deploying the application $VERSION, $CREDENTIALS"
             }
         }
 
@@ -36,7 +40,7 @@ pipeline {
         }
 
         success {
-            echo "success"
+            echo "this is success"
         }
 
         failure {
