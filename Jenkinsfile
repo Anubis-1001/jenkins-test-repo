@@ -28,7 +28,7 @@ pipeline {
 
         stage("deploy") {
             steps {
-                echo "deploying the application $VERSION, $CREDENTIALS"
+                echo "deploying the application $VERSION, $CREDENTIALS_USR"
             }
         }
 
