@@ -7,21 +7,35 @@ pipeline {
 
         stage("build") {
             steps {
-                echo 'building project'
+                echo 'building the application'
             }
         }
 
         stage("test") {
             steps {
-                echo 'building project'
+                echo 'testing the application'
             }
         }
 
         stage("deploy") {
             steps {
-                echo 'building project'
+                echo 'building the application'
             }
         }
 
+    }
+
+    post {
+        always {
+            echo "always"
+        }
+
+        success {
+            echo "success"
+        }
+
+        failure {
+            echo "failure"
+        }
     }
 }
