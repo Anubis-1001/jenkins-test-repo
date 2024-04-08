@@ -2,12 +2,7 @@ def gv =
 
 pipeline {
 
-    agent {
-         dockerContainer {
-            image 'python:3.9' 
-            volumes ' /home/anubis/PythonScript:/scripts' 
-        }
-    }
+    agent any
     parameters {
         choice(name: "Version", choices: ["1.10.0","1.20.0" ,"1.30.0" ], description: "which version to deploy")
         booleanParam(name: "execTests", defaultValue: true, description: "determines if we run tests")
