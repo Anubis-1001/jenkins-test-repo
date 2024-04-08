@@ -1,10 +1,14 @@
 pipeline {
 
-    agent any
-
+    agent {
+         docker {
+            image 'python:3.9' 
+            args '-v /home/anubis/PythonScript:/scripts' 
+        }
+    }
     parameters {
         choice(name: "Version", choices: ["1.10.0","1.20.0" ,"1.30.0" ], description: "which version to deploy")
-        booleanParama(name: "execTests", defaultValue: true, description: "determines if we run tests")
+        booleanParam(name: "execTests", defaultValue: true, description: "determines if we run tests")
     }
 
     environment {
@@ -17,6 +21,7 @@ pipeline {
         stage("build") {
             steps {
                 echo "building the application, version $VERSION"
+                sh "python3 scripts/script1.py"
             }
         }
 
