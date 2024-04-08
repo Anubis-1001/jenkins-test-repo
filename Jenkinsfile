@@ -1,3 +1,5 @@
+def gv = 
+
 pipeline {
 
     agent {
@@ -20,9 +22,12 @@ pipeline {
 
         stage("build") {
             steps {
-                echo "building the application, version $VERSION"
-                sh "python3 /scripts/script1.py"
+                script {
+                    gv = load "script.groovy"
+                }
             }
+
+            
         }
 
         stage("test") {
@@ -33,14 +38,17 @@ pipeline {
                 }
             }
             steps {
-                echo "testing the application $VERSION"
+                script {
+                    gv.testApp()
+                }
             }
         }
 
         stage("deploy") {
             steps {
-                echo "deploying the application $VERSION,"
-                echo "deploying version ${Version}"
+                script {
+                    gv.deployApp()
+                }
 
                 withCredentials([
                     usernamePassword(credentials: 'server-credentials', usernameVariable: USER, passswordVariable: PWD)
