@@ -1,7 +1,7 @@
 pipeline {
 
     agent {
-         docker {
+         dockerContainer {
             image 'python:3.9' 
             args '-v /home/anubis/PythonScript:/scripts' 
         }
