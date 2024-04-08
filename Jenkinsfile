@@ -12,7 +12,7 @@ pipeline {
 
     environment {
         VERSION = "1.3.5"
-        CREDENTIALS = credentials('80233fed-aa3c-4b5d-af9f-2796c55cac01')
+//        CREDENTIALS = credentials('80233fed-aa3c-4b5d-af9f-2796c55cac01')
     }
 
     stages {
