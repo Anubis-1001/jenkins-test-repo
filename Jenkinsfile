@@ -47,11 +47,7 @@ pipeline {
                     gv.deployApp()
                 }
 
-                withCredentials([
-                    usernamePassword(credentials: 'server-credentials', usernameVariable: USER, passswordVariable: PWD)
-                ]) {
-                    
-                }
+
             }
         }
 
