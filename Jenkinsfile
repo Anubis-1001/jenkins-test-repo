@@ -21,7 +21,7 @@ pipeline {
         stage("build") {
             steps {
                 echo "building the application, version $VERSION"
-                sh "python3 scripts/script1.py"
+                sh "python3 /scripts/script1.py"
             }
         }
 
@@ -39,7 +39,7 @@ pipeline {
 
         stage("deploy") {
             steps {
-                echo "deploying the application $VERSION, $CREDENTIALS_USR"
+                echo "deploying the application $VERSION,"
                 echo "deploying version ${Version}"
 
                 withCredentials([
