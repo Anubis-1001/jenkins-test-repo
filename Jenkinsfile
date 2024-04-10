@@ -8,7 +8,9 @@ pipeline {
         choice(name: "Version", choices: ["1.10.0","1.20.0" ,"1.30.0" ], description: "which version to deploy")
         booleanParam(name: "execTests", defaultValue: true, description: "determines if we run tests")
     }
-
+    options {
+        buildDiscarder(logRotator(numToKeepStr:’3’))
+    }
 
     environment {
         VERSION = "1.3.5"
