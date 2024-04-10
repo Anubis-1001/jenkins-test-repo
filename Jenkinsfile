@@ -2,7 +2,9 @@ def gv
 
 pipeline {
 
-    agent any
+    agent {
+        label 'python:3.9'
+    }
 
     parameters {
         choice(name: "Version", choices: ["1.10.0","1.20.0" ,"1.30.0" ], description: "which version to deploy")
