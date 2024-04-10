@@ -2,12 +2,7 @@ def gv
 
 pipeline {
 
-    agent {
-        docker { 
-            image 'python:3.9'
-            
-        }
-    }
+    agent any
 
     parameters {
         choice(name: "Version", choices: ["1.10.0","1.20.0" ,"1.30.0" ], description: "which version to deploy")
@@ -43,6 +38,8 @@ pipeline {
                 script {
                     gv.testApp()
                 }
+
+                echo "jenkins url is ${JENKINS_URL}"
             }
         }
 
