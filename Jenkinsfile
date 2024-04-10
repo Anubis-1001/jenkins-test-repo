@@ -9,7 +9,7 @@ pipeline {
         booleanParam(name: "execTests", defaultValue: true, description: "determines if we run tests")
     }
     options {
-        buildDiscarder(logRotator(numToKeepStr:’3’))
+        buildDiscarder(logRotator(numToKeepStr:'3'))
     }
 
     environment {
