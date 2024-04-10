@@ -3,7 +3,7 @@ def gv
 pipeline {
 
     agent {
-        label 'docker'
+        docker 'python:3.9'
     }
 
     parameters {
